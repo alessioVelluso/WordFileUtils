@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "target": "ES2021",
+    "moduleResolution": "Node",
+    "module": "CommonJS",
+    "declaration": true,
+    "isolatedModules": true,
+    "outDir": "dist",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+  },
+  "include": ["src", "index.d.ts"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,539 @@
+Key|Value
+Logout|Disconnettersi
+Administration|Amministrazione
+Anagraphics|Anagrafica
+Configuration|Configurazione
+Masters|Maestri
+Recipes|Ricette
+Traceability|Tracciabilità
+Lines Overview|Panoramica delle linee
+Dashboard|Pannello di controllo
+Roles|Ruoli
+Workposition Users|Utenti della posizione di lavoro
+Authorizations|Autorizzazioni
+Users|Utenti
+Access Levels|Livelli di accesso
+Access Levels Authorizations|Autorizzazioni dei livelli di accesso
+Measures|Le misure
+Pallet|Pallet
+Pallet Type|Tipo di pallet
+Properties|Proprietà
+Shifts|Turni
+Configurations|Configurazioni
+Error Codes|Codici di errore
+Operating Modes|Modalità operative
+Favorites|Preferiti
+Translations|Traduzioni
+Linee|Linee
+Product|Prodotto
+Activity|Attività
+Recipe Parameters|Parametri della ricetta
+Processes|Processi
+Workflows|Flussi di lavoro
+Notes|Appunti
+Pezzi|Pezzi
+Active Materials|Materiali attivi
+Measures Per Station|Misure per stazione
+Filters|Filtri
+Start Date|Data d'inizio
+End Date|Data di fine
+Line|Linea
+Machine|Macchina
+Station|Stazione
+Select Station|Seleziona Stazione
+Search|Ricerca
+Pieces overall for|Pezzi in totale per
+Pieces overall for Stations for|Pezzi complessivi per Stazioni per
+OEE for|OEE per
+Errors for|Errori per
+Top five scraps for|I primi cinque scrap per
+OK|OK
+NOK|NO
+Reworks|Rielaborazioni
+Rejection|Rifiuto
+Credentials|Credenziali
+Login with your credentials|Accedi con le tue credenziali
+Username|Nome utente
+Password|Parola d'ordine
+Login|Login
+Powered by|Offerto da
+New Authorization|Nuova autorizzazione
+Search authorizations|Autorizzazioni di ricerca
+No authorizations found|Nessuna autorizzazione trovata
+Elements per page:|Elementi per pagina:
+of|Di
+Id|Id
+Name|Nome
+Description|Descrizione
+Edit|Modificare
+Delete|Eliminare
+Status|Stato
+Last Part|Ultima parte
+ERROR|ERRORE
+New Role|Nuovo ruolo
+User Workpositions|Posizioni di lavoro dell'utente
+New association|Nuova associazione
+Select Machine|Seleziona Macchina
+Group By|Raggruppa per
+No data for selected filters|Nessun dato per i filtri selezionati
+IdAccessLevels|IdAccessLevels
+Plc Field|Campo Plc
+Access Level Authorizations|Autorizzazioni a livello di accesso
+New Access Level Auth|Nuovo livello di accesso Aut
+Update Role|Aggiorna ruolo
+Close|Vicino
+Save|Salva
+Created By|Creato da
+Updated By|Aggiornato da
+Created At|Creato a
+Updated At|Aggiornato a
+Create Role|Crea ruolo
+Add your authorization once you've created the role|Aggiungi la tua autorizzazione una volta creato il ruolo
+Select Shift|Seleziona Maiusc
+Stations|Stazioni
+Shift|Spostare
+Delete association|Elimina associazione
+Are you sure you want to delete this User-Workposition?|Sei sicuro di voler eliminare questa posizione di lavoro dell'utente?
+User|Utente
+New User workposition association|Associazione nuova posizione di lavoro utente
+Select user|Seleziona utente
+Update Authorization|Aggiorna autorizzazione
+Create Authorization|Crea autorizzazione
+Create Access Level Auth|Crea autenticazione livello di accesso
+Update Access Level Auth|Aggiorna autenticazione livello di accesso
+Units|Unità
+Limits|Limiti
+Search Measure|Cerca misura
+No measures found|Nessuna misura trovata
+Search Limit|Limite di ricerca
+No limits found|Nessun limite trovato
+Unit|Unità
+Deleted|Eliminato
+Measure Name|Nome della misura
+Measure Key|Chiave di misura
+Data Type|Tipo di dati
+Lower Limit|Limite inferiore
+Upper Limit|Limite superiore
+IsFavorite|È preferito
+Measure|Misurare
+Type|Tipo
+Current day|Giorno corrente
+The day after|Il giorno dopo
+Start Day|Giorno di inizio
+Start Hour|Ora di inizio
+End Day|Fine giornata
+Min Station Time|Tempo minimo della stazione
+Generals|Generali
+Notifications|Notifiche
+minutes|minuti
+Save Changes|Salvare le modifiche
+Polling|Sondaggio
+True|VERO
+Notification polling time|Tempo di polling delle notifiche
+seconds|secondi
+Machine status polling time|Tempo di interrogazione dello stato della macchina
+New User Notifications|Notifiche sui nuovi utenti
+There's no configuration for user notifications|Non esiste alcuna configurazione per le notifiche utente
+New Error Code|Nuovo codice di errore
+All Stations|Tutte le stazioni
+Language|Lingua
+All Language|Tutta la lingua
+Search Alarm|Cerca allarme
+No data available|Nessun dato disponibile
+Type more than 2 characters to search|Digita più di 2 caratteri per la ricerca
+Stop|Fermare
+Available|Disponibile
+User favorites|Preferiti dell'utente
+Export|Esportare
+Import|Importare
+Select language|Seleziona la lingua
+Search for translation or language|Cerca traduzione o lingua
+If you want to edit the records without the file import, save before you search for a specific translations or the changes won't be tracked|Se desideri modificare i record senza importare il file, salva prima di cercare una traduzione specifica altrimenti le modifiche non verranno tracciate
+Lines|Linee
+Machines|Macchine
+Serial Number|Numero di serie
+Enable|Abilitare
+Product Name|nome del prodotto
+Masters Configurations|Configurazioni master
+Products|Prodotti
+New Product|Nuovo prodotto
+Piece Type|Tipo pezzo
+Product Details|Dettagli del prodotto
+Details|Dettagli
+Details of product|Dettagli del prodotto
+Parameters|Parametri
+Auths correctly updated|Autenticazioni aggiornate correttamente
+Recipes Parameters|Parametri delle ricette
+Search process parameter|Parametro del processo di ricerca
+No parameter processes found|Nessun processo di parametro trovato
+New Parameter|Nuovo parametro
+DisplayName|Nome da visualizzare
+Station Id|Identificativo della stazione
+Is Component|È componente
+Update Recipe Parameter|Aggiorna parametro ricetta
+Display Name|Nome da visualizzare
+Plc Address|Indirizzo PLC
+Sql Data Type|Tipo di dati SQL
+Allow Negative Number|Consenti numero negativo
+Details of piece|Dettagli del pezzo
+Rework|Rielaborazione
+Good|Bene
+Cycles|Cicli
+Activities|Attività
+Media|Media
+Piece Info|Informazioni sul pezzo
+Excecuted activities|Attività eseguite
+No properties found for this piece|Nessuna proprietà trovata per questo pezzo
+No components found for this piece|Nessun componente trovato per questo pezzo
+No subparts found for this piece|Nessuna sottoparte trovata per questo pezzo
+New Operating Mode|Nuova modalità operativa
+Auth deleted correctly|Autenticazione eliminata correttamente
+New Line|Nuova linea
+Machines of Line|Macchine di linea
+New Machine|Nuova macchina
+Ip Address|Indirizzo IP
+Machine Number|Numero macchina
+In Work|In opera
+Stations of Machine|Stazioni di macchina
+New station|Nuova stazione
+Station Code|Codice della stazione
+Station parameters|Parametri della stazione
+All Processes|Tutti i processi
+Search process|Processo di ricerca
+No processes found|Nessun processo trovato
+Active|Attivo
+Max Reworks|Rielaborazioni massime
+Login with your RFID|Accedi con il tuo RFID
+Pieces|Pezzi
+Directly search S/N|Cerca direttamente S/N
+Select Piece Type|Seleziona il tipo di pezzo
+Product Type|Tipologia di prodotto
+Select Product Type|Seleziona il tipo di prodotto
+All|Tutto
+Scrap|Rottame
+EXPORT CSV|ESPORTA CSV
+New Workflow|Nuovo flusso di lavoro
+Reference Id|Identificativo di riferimento
+Previous versions|Versione precedente
+New Process|Nuovo processo
+Update Process|Processo di aggiornamento
+Max Rework|Rielaborazione massima
+Workflow|Flusso di lavoro
+Select Workflow|Seleziona Flusso di lavoro
+Workflow Description|Descrizione del flusso di lavoro
+Click on link or process and|Fare clic sul collegamento o sul processo e
+Version created on|Versione creata il
+by|di
+Versions for workflow|Versioni per il flusso di lavoro
+Workflow Version|Versione del flusso di lavoro
+Select Workflow Version|Seleziona Versione flusso di lavoro
+This is a readonly visualization|Questa è una visualizzazione di sola lettura
+Restore|Ristabilire
+Pieces Masters|Pezzi Maestri
+Load Date|Data di caricamento
+Unload Date|Data di scarico
+Piece Details|Dettagli del pezzo
+Next reworkable station|Prossima stazione rilavorabile
+LOAD MORE|CARICA DI PIÙ
+Cycle status|Stato del ciclo
+Load informations|Carica informazioni
+Unload informations|Scarica informazioni
+Production In|Produzione dentro
+Production Out|Produzione esaurita
+Cycle type|Tipo di ciclo
+Reworked requests|Richieste rielaborate
+No measures found for this station|Nessuna misura trovata per questa stazione
+No rework found for this piece|Nessuna rilavorazione trovata per questo pezzo
+History|Storia
+Part Details|Dettagli della parte
+Reworked activities|Attività rielaborate
+Part Serial|Parte seriale
+Last Work Position|Ultima posizione lavorativa
+Next Process|Processo successivo
+See only favorites|Vedi solo i preferiti
+Scrap Code|Codice rottame
+activity code|codice attività
+Station configuration saved correctly|Configurazione della stazione salvata correttamente
+Events|Eventi
+This record is disabled|Questo record è disabilitato
+File Name|Nome del file
+Top Cycletimes for|I migliori tempi di ciclo per
+Top Production Stop for|La migliore sosta di produzione per
+You've already logged in|Hai già effettuato l'accesso
+Please scan your RFID|Per favore scansiona il tuo RFID
+Your RFID Service is unavailable, be sure the dedicated app is running|Il tuo servizio RFID non è disponibile, assicurati che l'app dedicata sia in esecuzione
+Change Password|Cambiare la password
+UNREAD NOTIFICATIONS:|NOTIFICHE NON LETTE:
+No notifications found|Nessuna notifica trovata
+Show More|Mostra di più
+Error while changing the password|Errore durante la modifica della password
+Password has been changed correctly|La password è stata modificata correttamente
+Set Notes|Imposta note
+Set notes to product part|Imposta le note sulla parte del prodotto
+Date From|Data da
+Time From|Ora da
+Date To|Data a
+Time To|Tempo di
+Select Product|Seleziona prodotto
+Note|Nota
+Set notes to next part|Imposta le note sulla parte successiva
+You're requesting to see only this specified cycle|Stai richiedendo di vedere solo questo ciclo specificato
+See everything|Vedi tutto
+Worked time|Tempo lavorato
+Piece status|Stato del pezzo
+Fixture name|Nome dell'apparecchio
+There has been an error while trying to get your measures|Si è verificato un errore durante il tentativo di ottenere le misure
+FALSE|FALSO
+There has been an error while trying to delete the auth|Si è verificato un errore durante il tentativo di eliminare l'autenticazione
+New Access Level|Nuovo livello di accesso
+Add your authorization once you've created the Access Level|Aggiungi la tua autorizzazione una volta creato il livello di accesso
+Access Level deleted succesfully|Livello di accesso eliminato correttamente
+There has been an error while trying to delete the Access Level|Si è verificato un errore durante il tentativo di eliminare il livello di accesso
+Role deleted succesfully|Ruolo eliminato con successo
+Error while trying to delete role|Errore durante il tentativo di eliminare il ruolo
+Error while updating authorizations|Errore durante l'aggiornamento delle autorizzazioni
+User Required|Utente richiesto
+New User|Nuovo utente
+Set RFID|Imposta RFID
+Ban user|Escludere l'utente
+Restore User|Ripristina utente
+Reset Password|Resetta la password
+Please provide a valid username.|Fornisci un nome utente valido.
+5 letters long, 1 capitalized, 1 special, and 1 numeric character|5 lettere lunghe, 1 maiuscola, 1 speciale e 1 carattere numerico
+First Name|Nome di battesimo
+Please provide a valid first name.|Si prega di fornire un nome valido.
+Last Name|Cognome
+Please provide a valid last name.|Si prega di fornire un cognome valido.
+Phone|Telefono
+Please provide a valid phone number.|Si prega di fornire un numero di telefono valido.
+Email|E-mail
+Please provide a valid email.|Per favore inserisci un'email valida.
+Access|Accesso
+Select access level|Seleziona il livello di accesso
+No Roles available, please add a new one|Nessun ruolo disponibile, aggiungine uno nuovo
+Add RFID|Aggiungi RFID
+Are you sure you want to reset the password for|Sei sicuro di voler reimpostare la password per
+New Password|nuova password
+Error while adding the user|Errore durante l'aggiunta dell'utente
+New user created correctly|Nuovo utente creato correttamente
+Roles added correctly|Ruoli aggiunti correttamente
+Error while updating the new-user roles|Errore durante l'aggiornamento dei ruoli dei nuovi utenti
+Error while resetting the password the user|Errore durante la reimpostazione della password dell'utente
+Password has been resetted correctly|La password è stata reimpostata correttamente
+Error while updating the user|Errore durante l'aggiornamento dell'utente
+User edited correctly|L'utente ha modificato correttamente
+Roles updated correctly|Ruoli aggiornati correttamente
+Error while updating the user roles|Errore durante l'aggiornamento dei ruoli utente
+Error while deleting the user|Errore durante l'eliminazione dell'utente
+User Deleted|Utente eliminato
+Error while saving the user's RFID|Errore durante il salvataggio dell'RFID dell'utente
+User RFID saved|RFID utente salvato
+Error while banning the user|Errore durante il ban dell'utente
+User Banned|Utente bannato
+New Measure|Nuova misura
+New Measure Unit|Nuova unità di misura
+New Measure Limit|Nuovo limite di misura
+Measure deleted correctly|Misura cancellata correttamente
+There has been a problem while deleting the measure|Si è verificato un problema durante l'eliminazione della misura
+New Shift|Nuovo turno
+Shift deleted correctly|Turno eliminato correttamente
+There has been a problem while deleting the shift|Si è verificato un problema durante l'eliminazione del turno
+There has been an error while trying to save your shifts days|Si è verificato un errore durante il tentativo di salvare i giorni dei turni
+New Translation Group|Nuovo gruppo di traduzione
+Set for every record|Impostato per ogni record
+Remove for every record|Rimuovi per ogni record
+You need to type at least 3 characters to search|È necessario digitare almeno 3 caratteri per eseguire la ricerca
+Culture Info|Informazioni sulla cultura
+Remove|Rimuovere
+Translation groups of section|Gruppi di traduzione della sezione
+Translations group|Gruppo Traduzioni
+Sections|Sezioni
+Translations Sections|Sezioni Traduzioni
+New Translation Section|Nuova sezione di traduzione
+There has been an error while trying to delete the section.|Si è verificato un errore durante il tentativo di eliminare la sezione.
+Section deleted succesfully.|Sezione eliminata con successo.
+Select Translation Section|Seleziona la sezione Traduzione
+Properties edited|Proprietà modificate
+Are you sure you want to delete all the translations for group|Sei sicuro di voler eliminare tutte le traduzioni per il gruppo?
+Are you sure you want to add|Sei sicuro di voler aggiungere?
+for every group of the current section|per ogni gruppo della sezione corrente
+Are you sure you want to delete culture|Sei sicuro di voler eliminare la cultura?
+for all the groups of the current section|per tutti i gruppi della sezione corrente
+Select a section|Seleziona una sezione
+Translation keys for group|Chiavi di traduzione per il gruppo
+has been inserted correctly|è stato inserito correttamente
+Translation|Traduzione
+has been deleted|è stato cancellato
+Culture|Cultura
+has been added correctly.|è stato aggiunto correttamente.
+There has been an error while trying to delete your translation|Si è verificato un errore durante il tentativo di eliminare la traduzione
+Select a section to export|Seleziona una sezione da esportare
+Is Multilink Enabled|Il collegamento multiplo è abilitato
+Enabled|Abilitato
+Disabled|Disabilitato
+WEB|RAGNATELA
+Create notification association|Crea associazione di notifica
+Update notification association|Aggiorna l'associazione delle notifiche
+Are notifications enabled|Le notifiche sono abilitate
+Notification Type|Tipo di notifica
+Are you sure you want to delete notifications for role|Sei sicuro di voler eliminare le notifiche per il ruolo?
+User notifications deleted succesfully|Notifiche utente eliminate correttamente
+General-Rules configuration saved correctly|Configurazione delle Regole Generali salvata correttamente
+Workflow configuration saved correctly|Configurazione del flusso di lavoro salvata correttamente
+User's notification updated correctly|Notifica dell'utente aggiornata correttamente
+User's notification created correctly|Notifica dell'utente creata correttamente
+There has been an error while trying to save the alarm language|Si è verificato un errore durante il tentativo di salvare la lingua dell'allarme
+Error code deleted succesfully|Codice errore eliminato con successo
+There has been an error while trying to delete the error code|Si è verificato un errore durante il tentativo di eliminare il codice di errore
+There has been a problem while trying to save your favorites|Si è verificato un problema durante il tentativo di salvare i tuoi preferiti
+Your favorites has been saved correctly|I tuoi preferiti sono stati salvati correttamente
+Line deleted correctly|Riga eliminata correttamente
+There has been a problem while deleting the line|Si è verificato un problema durante l'eliminazione della riga
+Operating Mode succesfully|Modalità operativa riuscita
+There has been an error while deleting the Operating Mode.|Si è verificato un errore durante l'eliminazione della modalità operativa.
+Are you sure you want to export all the translation in|Sei sicuro di voler esportare tutta la traduzione in
+Import Translatiion Csv|Importa Csv di traduzione
+Select culture|Seleziona la cultura
+Translations updated succesfully|Traduzioni aggiornate con successo
+There has been an error while trying to update your translations|Si è verificato un errore durante il tentativo di aggiornare le tue traduzioni
+File must be Csv|Il file deve essere CSV
+Empty File|File vuoto
+Select your desired culture|Seleziona la cultura desiderata
+Translations updated correctly|Traduzioni aggiornate correttamente
+Add new association|Aggiungi nuova associazione
+User Workposition created correctly|Posizione di lavoro dell'utente creata correttamente
+There has been an error while trying to save your workposition|Si è verificato un errore durante il tentativo di salvare la posizione di lavoro
+User Workposition deleted correctly|Posizione di lavoro dell'utente eliminata correttamente
+There has been an error while trying to delete your workposition|Si è verificato un errore durante il tentativo di eliminare la tua posizione di lavoro
+New Master Config|Nuova configurazione principale
+No available options for the station of your configuration|Nessuna opzione disponibile per la stazione della tua configurazione
+Add your activities once you've created the configuration|Aggiungi le tue attività una volta creata la configurazione
+Configuration has been deleted correctly|La configurazione è stata eliminata correttamente
+There has been an error while trying to delete your configuration|Si è verificato un errore durante il tentativo di eliminare la configurazione
+There has been an error while trying to update your master configuration|Si è verificato un errore durante il tentativo di aggiornare la configurazione principale
+There has been an error while binding your master configuration to your activities|Si è verificato un errore durante l'associazione della configurazione principale alle tue attività
+New Master|Nuovo Maestro
+Master has been deleted correctly|Il master è stato eliminato correttamente
+There has been an error while trying to delete your master|Si è verificato un errore durante il tentativo di eliminare il tuo master
+In Error|In errore
+All Activities|Tutte le attività
+New Activity|Nuova attività
+Search activity|Attività di ricerca
+No activities found|Nessuna attività trovata
+There has been an error while deleting the activity|Si è verificato un errore durante l'eliminazione dell'attività
+Activity deleted succesfully|Attività eliminata correttamente
+Add your activities once you've created the process|Aggiungi le tue attività una volta creato il processo
+There has been an error while deleting the process|Si è verificato un errore durante l'eliminazione del processo
+Process deleted succesfully|Processo eliminato con successo
+Product deleted succesfully|Prodotto eliminato con successo
+There has been an error while trying to delete the product|Si è verificato un errore durante il tentativo di eliminare il prodotto
+Product workflow updated|Flusso di lavoro del prodotto aggiornato
+There has been an error while trying to update the product workflow|Si è verificato un errore durante il tentativo di aggiornare il flusso di lavoro del prodotto
+There has been an error while deleting the parameter|Si è verificato un errore durante l'eliminazione del parametro
+Parameter deleted succesfully|Parametro eliminato con successo
+You can't delete a workflow already executed|Non è possibile eliminare un flusso di lavoro già eseguito
+There has been an error while trying to delete your workflow|Si è verificato un errore durante il tentativo di eliminare il flusso di lavoro
+Workflow deleted succesfully|Flusso di lavoro eliminato correttamente
+Event Type|Tipo di evento
+Select Event Type|Seleziona il tipo di evento
+There has been an error while trying to retrieve your events|Si è verificato un errore durante il tentativo di recuperare i tuoi eventi
+There has been an error while trying to retrieve the options of your filter|Si è verificato un errore durante il tentativo di recuperare le opzioni del filtro
+Search by material name|Cerca per nome del materiale
+Directly search by S/N|Cerca direttamente per S/N
+Executed Activities|Attività eseguite
+There's no existing piece for this SerialNumber|Non esiste alcun pezzo esistente per questo SerialNumber
+Related Cycle|Ciclo correlato
+Machine deleted correctly|Macchina cancellata correttamente
+There has been an error while deleting the machine|Si è verificato un errore durante l'eliminazione della macchina
+Value|Valore
+Quantity|Quantità
+Part Number|Numero di parte
+Expire Hours|Scadenza degli orari
+Versions|Versioni
+No masters in this station for this product|Nessun master in questa stazione per questo prodotto
+Material Serial|Seriale del materiale
+Master Config|Configurazione principale
+Expected Result|Risultato atteso
+Update master|Aggiorna maestro
+Delete master|Elimina principale
+Add master|Aggiungi maestro
+Parameter versions for product|Versioni dei parametri per il prodotto
+Version saved on|Versione salvata su
+See version details|Vedi i dettagli della versione
+Expire Time for product|Scadenza del prodotto
+Is Expire Enabled|Scadenza abilitata
+Weeks|Settimane
+Days|Giorni
+Hours|Ore
+If Expire setting isn't enabled, values will be saved as 0|Se l'impostazione Scadenza non è abilitata, i valori verranno salvati come 0
+Master Serial|Seriale principale
+Select Master Serial|Seleziona Seriale principale
+Selected Master Config|Configurazione principale selezionata
+Select master config|Seleziona la configurazione principale
+Scan Timing|Tempi di scansione
+Are you sure you want to delete this master?|Sei sicuro di voler eliminare questo master?
+Your product parameters have been updated|I parametri del tuo prodotto sono stati aggiornati
+There has been an error while trying to update your product parameters|Si è verificato un errore durante il tentativo di aggiornare i parametri del prodotto
+Error: Related Param Not Found|Errore: parametro correlato non trovato
+Remember to save your changes to create a new version of these recipe parameters|Ricordati di salvare le modifiche per creare una nuova versione di questi parametri della ricetta
+Your master association has been created|La tua associazione principale è stata creata
+There has been an error while trying to delete your association|Si è verificato un errore durante il tentativo di eliminare la tua associazione
+Your master has been correctly deleted|Il tuo master è stato eliminato correttamente
+Add Process|Aggiungi processo
+Select Process|Seleziona Processo
+Load|Carico
+There has been an error while trying to get your workflow|Si è verificato un errore durante il tentativo di ottenere il flusso di lavoro
+You must have at least two process binded together to save the workflow|È necessario avere almeno due processi collegati insieme per salvare il flusso di lavoro
+There has been an error while trying to update your workflow|Si è verificato un errore durante il tentativo di aggiornare il flusso di lavoro
+Workflow has been updated|Il flusso di lavoro è stato aggiornato
+You can't save a workflow with unbinded processes|Non è possibile salvare un flusso di lavoro con processi non associati
+There has been an error while trying to retrieve your process bindings: |Si è verificato un errore durante il tentativo di recuperare i collegamenti del processo:
+You cannot bind more than one process together|Non è possibile associare più di un processo insieme
+You cannot bind the end of a process with the end of the next one|Non è possibile legare la fine di un processo con la fine di quello successivo
+There has been an error while trying to copy your workflow|Si è verificato un errore durante il tentativo di copiare il flusso di lavoro
+Are you sure you want to restore this version made by|Sei sicuro di voler ripristinare questa versione creata da
+on date|alla data
+Your workflow had been restored to this version|Il tuo flusso di lavoro è stato ripristinato a questa versione
+There has been a problem while trying to restore your workflow with this version|Si è verificato un problema durante il tentativo di ripristinare il flusso di lavoro con questa versione
+There has been an error while trying to restore your workflow|Si è verificato un errore durante il tentativo di ripristinare il flusso di lavoro
+No activities excecuted found for this piece|Nessuna attività eseguita trovata per questo pezzo
+Rework History|Storia della rielaborazione
+Piece not found|Pezzo non trovato
+Curves|Curve
+Last station|Ultima stazione
+Next station|Prossima stazione
+Is Master|È Maestro
+Has concluded workflow|Ha concluso il flusso di lavoro
+Next activities:|Prossime attività:
+Is Reworkable|È rilavorabile
+Cycle id|ID ciclo
+Measure value|Misurare il valore
+Download|Scaricamento
+Program name|Nome del programma
+There has been an error while trying to retrieve your media-measures|Si è verificato un errore durante il tentativo di recuperare le misure multimediali
+There has been an error while trying to read your XML file|Si è verificato un errore durante il tentativo di leggere il tuo file XML
+There has been an error while trying to receive the cycles|Si è verificato un errore durante il tentativo di ricevere i cicli
+Station deleted succesfully|Stazione eliminata correttamente
+There has been an error while trying to delete the station|Si è verificato un errore durante il tentativo di eliminare la stazione
+Product Parameter Version|Versione dei parametri del prodotto
+Restore version|Ripristina versione
+Created On|Creato
+Parameter Values|Valori dei parametri
+Are you sure you want to restore this version for product|Sei sicuro di voler ripristinare questa versione per il prodotto
+Yor version has been restored for product|La tua versione è stata ripristinata per il prodotto
+There has been an error while trying to restore this version|Si è verificato un errore durante il tentativo di ripristinare questa versione
+You can't rework a piece that is not a scrap|Non puoi rielaborare un pezzo che non sia uno scarto
+Reintroduction|Reintroduzione
+Last activity|L'ultima attività
+Are you sure you want to rework those activities for piece|Sei sicuro di voler rielaborare quelle attività pezzo per pezzo?
+Confirm|Confermare
+This activity is reworkable only by users with your role.|Questa attività è rielaborabile solo dagli utenti con il tuo ruolo.
+Are you really sure you want to rework this activity over the default limit?|Sei davvero sicuro di voler rielaborare questa attività oltre il limite predefinito?
+Limit is:|Il limite è:
+This would be the rework number|Questo sarebbe il numero di rilavorazione
+Rework last activity|Rielabora l'ultima attività
+There has been an error while trying to retrieve your activities|Si è verificato un errore durante il tentativo di recuperare le tue attività
+You haven't selected any activity to rework|Non hai selezionato alcuna attività da rielaborare
+There has been a problem while trying to disable the next piece activities|Si è verificato un problema durante il tentativo di disabilitare le attività del pezzo successivo
+There has been a problem while trying to accept your rework|Si è verificato un problema durante il tentativo di accettare la rielaborazione
+Rework has been accepted.|La rielaborazione è stata accettata.
