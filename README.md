@@ -10,31 +10,31 @@ The package is just a class exporting as default, feel free to use all the OOP i
 At the moment, the interface of the class is as it follows:
 ```js
 interface IWordFileUtils {
-    separator:string;
-    errorTranslationValue:string;
-    translationColumnName:string;
+    separator:string,
+    errorTranslationValue:string,
+    translationColumnName:string,
 
-    translateValue:(value:string, localeIn:string, localeOut:string) => Promise<string>;
-    parseCsv:(csvFilepath:string, separator:string) => GenericObject[];
-    translateObjectList:(data:GenericObject[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig) => Promise<GenericObject[]>
-    writeCsv:(outputCsv:string, data:GenericObject[], separator:string) => Promise<void>
-    translateCsv:(data:TranslateCsvConfig) => Promise<void>
-	findWords: (folderToRead:string, desiredExtensions:string[], wordToFind:RegExp) => string[]
+    translateValue:(value:string, localeIn:string, localeOut:string) => Promise<string>,
+    parseCsv:(csvFilepath:string, separator:string) => GenericObject[],
+    translateObjectList:(data:GenericObject[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig) => Promise<GenericObject[]>,
+    writeCsv:(outputCsv:string, data:GenericObject[], separator:string) => Promise<void>,
+    translateCsv:(data:TranslateCsvConfig) => Promise<void>,
+    findWords: (folderToRead:string, desiredExtensions:string[], wordToFind:RegExp) => string[]
 }
 ```
 
 
 ## A brief explanation of the methods:
 
-##### 1. Translate Value
+#### 1. Translate Value
 ```js
-translateValue:(value:string, localeIn:string, localeOut:string) => Promise<string>;
+translateValue: (value:string, localeIn:string, localeOut:string) => Promise<string>;
 ```
 Simply translating a word to the desired one
 
-##### 2. Parse Csv
+#### 2. Parse Csv
 ```js
-parseCsv:(csvFilepath:string, separator:string) => GenericObject[];
+parseCsv: (csvFilepath:string, separator:string) => GenericObject[];
 ```
 Parse a csv in an array of object, having the key as column name:
 ```csv
@@ -50,25 +50,25 @@ This is gonna be parsed as
 ]
 ```
 
-##### 3. Translate Object List
+#### 3. Translate Object List
 ```js
-translateObjectList:(data:GenericObject[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig) => Promise<GenericObject[]>
+translateObjectList: (data:GenericObject[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig) => Promise<GenericObject[]>
 ```
 After specifying the target column, the func return the same object list with an added key of the translation
 
-##### 4. Write Csv
+#### 4. Write Csv
 ```js
-writeCsv:(outputCsv:string, data:GenericObject[], separator:string) => Promise<void>
+writeCsv: (outputCsv:string, data:GenericObject[], separator:string) => Promise<void>
 ```
 Write a csv with an object list parameter, having the column as the object keys.
 
-##### 5. Translate Csv
+#### 5. Translate Csv
 ```js
-translateCsv:(data:TranslateCsvConfig) => Promise<void>
+translateCsv: (data:TranslateCsvConfig) => Promise<void>
 ```
 Take a csv as input and write the same csv with an added translated_value column.
 
-##### 6. Find Words
+#### 6. Find Words
 ```js
 findWords: (folderToRead:string, desiredExtensions:string[], wordToFind:RegExp) => string[]
 ```
