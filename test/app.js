@@ -6,7 +6,7 @@ const wfu = require("word-file-utils")
 // --- Translation
 const wfUtils = new wfu({ separator: "|" });
 wfUtils.translateCsv({
-    csvFilepath: "./Files/Test_ITA.csv",
+    csvFilepath: "../Files/Test_ITA.csv",
     cultureFrom: "it",
     cultureTo: "en",
     translatingCol: "Value",

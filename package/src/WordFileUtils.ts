@@ -1,7 +1,9 @@
 import fs from "fs"
 import path from 'path'
 import translate from 'node-google-translate-skidz';
-import { GenericObject, TranslateCsvConfig, TranslationConfig, TranslationMakerConstructor } from "./types.js";
+import { GenericObject, TranslateCsvConfig, TranslationConfig, TranslationMakerConstructor, WfuWorksheet } from "./types/types.js";
+import ExcelJS, { Alignment, Fill, FillPattern, FillPatterns, Font, Row } from 'exceljs';
+
 
 
 
@@ -12,11 +14,12 @@ interface IWordFileUtils {
     translationColumnName:string;
 
     translateValue:(value:string, localeIn:string, localeOut:string) => Promise<string>;
-    parseCsv:(csvFilepath:string, separator:string) => GenericObject[];
-    translateObjectList:(data:GenericObject[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig) => Promise<GenericObject[]>
-    writeCsv:(outputCsv:string, data:GenericObject[], separator:string) => Promise<void>
+    parseCsv:<T extends Record<string, string | number | boolean> = GenericObject>(csvFilepath:string, separator:string) => T[];
+    translateObjectList:<T extends GenericObject = GenericObject>(data:T[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig) => Promise<T[]>
+    writeCsv:<T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator:string) => Promise<void>
     translateCsv:(data:TranslateCsvConfig) => Promise<void>
 	findWords: (folderToRead:string, desiredExtensions:string[], wordToFind:RegExp) => string[]
+	createWorkbook: <T extends GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]) => void;
 }
 
 
@@ -30,10 +33,10 @@ export default class WordFileUtils implements IWordFileUtils {
   	public translationColumnName = "translated_value"
   	public separator = ";"
 
-	constructor({ separator, errorTranslationValue, translationColumnName }:TranslationMakerConstructor) {
-		if (separator) this.separator = separator;
-		if (errorTranslationValue) this.errorTranslationValue = errorTranslationValue
-		if (translationColumnName) this.translationColumnName = translationColumnName
+	constructor(data:TranslationMakerConstructor = {}) {
+		if (data?.separator) this.separator = data.separator;
+		if (data.errorTranslationValue) this.errorTranslationValue = data.errorTranslationValue
+		if (data.translationColumnName) this.translationColumnName = data.translationColumnName
 	}
 
 
@@ -66,7 +69,7 @@ export default class WordFileUtils implements IWordFileUtils {
   	}
 
 
-	public parseCsv(csvFilepath:string, separator:string = this.separator):GenericObject[] {
+	public parseCsv<T extends GenericObject = GenericObject>(csvFilepath:string, separator:string = this.separator):T[] {
 		const csvContent = fs.readFileSync(csvFilepath, 'utf-8');
 
 		const rows = csvContent.split('\n');
@@ -74,8 +77,8 @@ export default class WordFileUtils implements IWordFileUtils {
 
 		const result = rows.map(line => {
 			const rowArray = line.split(separator);
-			const result: { [Key:string]:string } = {}
-			rowArray.forEach((x, i) => result[cols[i]] = x)
+			const result = {} as T
+			rowArray.forEach((x, i) => (result as GenericObject)[cols[i]] = x)
 
 			return result
 		});
@@ -85,7 +88,7 @@ export default class WordFileUtils implements IWordFileUtils {
 	}
 
 
-  	public async translateObjectList(data:GenericObject[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig):Promise<GenericObject[]> {
+  	public async translateObjectList<T extends GenericObject = GenericObject>(data:T[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig):Promise<T[]> {
     	let j = 0;
     	const length = data.length;
 		for (let row of data) {
@@ -95,14 +98,14 @@ export default class WordFileUtils implements IWordFileUtils {
 					console.log(`[${j + 1}/${length}] => ROW UNDEFINED`);
 					continue;
 				}
-				const translation = await this.translateValue(row[translatingCol], cultureFrom, cultureTo);
-				row[this.translationColumnName] = translation;
+				const translation = await this.translateValue(`${(row as GenericObject)[translatingCol]}`, cultureFrom, cultureTo);
+				(row as GenericObject)[this.translationColumnName] = translation;
 				console.log(`[${j + 1}/${length}] => ${row[translatingCol]} === ${translation}`);
 			}
 			catch (err)
 			{
 				console.error(`[${j + 1}/${length}] => ${row[translatingCol]} === Error:`, err);
-				row[this.translationColumnName] = this.errorTranslationValue;
+				(row as GenericObject)[this.translationColumnName] = this.errorTranslationValue;
 			}
 
 			j++;
@@ -112,7 +115,7 @@ export default class WordFileUtils implements IWordFileUtils {
   	}
 
 
-	public async writeCsv(outputCsv:string, data:GenericObject[], separator:string = this.separator):Promise<void> {
+	public async writeCsv<T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator:string = this.separator):Promise<void> {
 		const cols = Object.keys(data[0])
 		const stringedArray = data.map(row => {
 			const stringed = cols.map(x => row[x]).join(separator)
@@ -135,4 +138,54 @@ export default class WordFileUtils implements IWordFileUtils {
 
 		this.writeCsv(outFilepath, translatedObjectList, separator);
 	}
+
+
+	public async createWorkbook<T extends GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]):Promise<void> {
+		const workbook = new ExcelJS.Workbook();
+		const initialY = 2
+		const initialX = 2;
+
+		for (const ws of worksheets)
+		{
+			const worksheet = workbook.addWorksheet(ws.name);
+			const offsetCellAddress:string = worksheet.getRow(initialY).getCell(initialX).address;
+
+			if (ws.data.length === 0)
+			{
+				const messageCells:string = worksheet.getRow(initialY + 2).getCell(initialX + 2).address;
+				worksheet.mergeCells(`${offsetCellAddress}:${messageCells}`);
+
+				worksheet.getCell(offsetCellAddress).value = 'no data found';
+				worksheet.getCell(offsetCellAddress).alignment = { vertical: 'middle', horizontal: 'center' };
+			}
+			else
+			{
+				const columns = Object.keys(ws.data[0]).map(x => ({ name: x, filterButton: true }))
+				const rows = ws.data.map(row => Object.values(row))
+				worksheet.addTable({
+					name: `Table_${ws.name}`,
+					ref: offsetCellAddress,
+					headerRow: true,
+					totalsRow: true,
+					style: { theme: 'TableStyleDark3', showRowStripes: true },
+					columns,
+					rows
+				});
+
+				columns.forEach((col, i) => {
+					let maxLength = col.name.length;
+					rows.forEach(row => {
+						const cellValue = row[i] ? row[i].toString() : '';
+						maxLength = Math.max(maxLength, cellValue.length);
+					});
+
+					worksheet.getColumn(i + initialX).width = maxLength + 2;
+				});
+			}
+		}
+
+
+		await workbook.xlsx.writeFile(name + '.xlsx')
+		console.log(`File saved in ${name}.xlsx`);
+	};
 }

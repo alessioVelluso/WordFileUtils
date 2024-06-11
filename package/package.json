@@ -17,7 +17,11 @@
   "scripts": {
     "build": "tsup"
   },
-  "keywords": [ "File", "csv", "translation"],
+  "keywords": [
+    "File",
+    "csv",
+    "translation"
+  ],
   "author": "Alessio Velluso",
   "license": "MIT",
   "devDependencies": {
@@ -26,6 +30,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "exceljs": "^4.4.0",
     "node-google-translate-skidz": "^1.1.2",
     "tsup": "^8.1.0"
   }
