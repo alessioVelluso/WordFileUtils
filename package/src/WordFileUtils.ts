@@ -13,9 +13,9 @@ interface IWordFileUtils {
     errorTranslationValue:string;
     translationColumnName:string;
 
-    parseCsvToObjectList:<T extends Record<string, string | number | boolean | Date> = GenericObject>(csvFilepath:string, separator:string) => T[];
-	parseObjectListToCsv:<T extends GenericObject = GenericObject>(data:T[], separator:string) => string
-	writeCsv:<T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator:string) => Promise<void>
+    parseCsvToObjectList:<T extends Record<string, string | number | boolean | Date> = GenericObject>(csvFilepath:string, separator?:string) => T[];
+	parseObjectListToCsv:<T extends GenericObject = GenericObject>(data:T[], separator?:string) => string
+	writeCsv:<T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator?:string) => Promise<void>
 	createWorkbook: <T extends GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]) => Promise<Workbook>;
 	writeWorkbook:<T extends GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]) => Promise<void>;
 
