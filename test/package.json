@@ -9,8 +9,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "word-file-utils": "^0.0.1"
-  }
+  "license": "ISC"
 }

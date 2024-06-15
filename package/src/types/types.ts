@@ -1,13 +1,19 @@
 import { Column } from "exceljs"
 
-export interface GenericObject { [Key:string]: string | number | boolean }
+export interface GenericObject { [Key:string]: string | number | boolean | Date }
 
-export type TranslationConfig = { translatingCol:string, cultureFrom:string, cultureTo:string }
+export interface TranslationConfig { translatingCol:string, cultureFrom:string, cultureTo:string }
 
-export type TranslateCsvConfig = TranslationConfig & { csvFilepath:string, outFilepath:string, separator?:string }
+export interface TranslateCsvConfig extends TranslationConfig { csvFilepath:string, outFilepath:string, separator?:string }
 
-export type TranslationMakerConstructor = {  separator?:string, errorTranslationValue?:string, translationColumnName?:string }
+export interface TranslationMakerConstructor {  separator?:string, errorTranslationValue?:string, translationColumnName?:string }
 
 export interface WfuExcelColumn extends Partial<Column> { name:string, parse?: 'date' };
 
-export type WfuWorksheet<T extends GenericObject = GenericObject> = { name: string, data:T[], /* cols:WfuExcelColumn[] */ }
+export type WfuWorksheetDetails = { title:string, rows?:number, data: GenericObject, patternColor?: string }
+export interface WfuWorksheet<T extends GenericObject = GenericObject> {
+    name: string,
+    data:T[],
+    prepend?: WfuWorksheetDetails
+    append?: WfuWorksheetDetails,
+}

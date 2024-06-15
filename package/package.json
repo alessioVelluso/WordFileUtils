@@ -1,6 +1,6 @@
 {
   "name": "word-file-utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Word finder and translation/csv utils",
   "repository": {
     "url": "https://github.com/alessioVelluso/WordFileUtils"

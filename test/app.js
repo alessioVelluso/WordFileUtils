@@ -1,26 +1,25 @@
-const wfu = require("word-file-utils")
-
+const WordFileUtils = require("word-file-utils")
+const fs = require("fs")
 
 
 
 // --- Translation
-const wfUtils = new wfu({ separator: "|" });
-wfUtils.translateCsv({
-    csvFilepath: "../Files/Test_ITA.csv",
-    cultureFrom: "it",
-    cultureTo: "en",
-    translatingCol: "Value",
-    outFilepath: "./Files/Test_EN.csv"
-})
+const wfu = new WordFileUtils({ separator: "|" });
+// wfUtils.translateCsv({
+//     csvFilepath: "../Files/Test_ITA.csv",
+//     cultureFrom: "it",
+//     cultureTo: "en",
+//     translatingCol: "Value",
+//     outFilepath: "../Files/Test_EN.csv"
+// })
 
 
 
 // --- File reading
-// const words = wfUtils.findWords(".", [ ".ts" ], /File\("([^"]+)"\)/g)
-// const queries = words.map(word =>
-//     'INSERT INTO [db].[Schema].[TabName] ' +
-//     '(xyz, sbc, sdf, ert) ' +
-//     `VALUES (10005, 'en-US', '${word}', '${word}')`
-// );
+const objList = wfu.parseCsvToObjectList("../Files/MockData.csv", ",");
+wfu.writeJson('../Files/MockData.json', objList);
 
-// console.log(queries.join("\n;"))
+let data = fs.readFileSync('../Files/MockData.json', 'utf8');
+data = JSON.parse(data)
+console.log(typeof data)
+wfu.writeCsv("../Files/MockDataAgain.csv", data, ",")
