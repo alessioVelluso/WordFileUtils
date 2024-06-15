@@ -7,9 +7,7 @@ This is a package i made for myself but can surely be helpful to others, feel fr
 ## Install:
 
 ```
-
 npm install word-file-utils
-
 ```
 
 
@@ -24,21 +22,20 @@ interface  IWordFileUtils {
 	separator:string;
 	errorTranslationValue:string;
 	translationColumnName:string;
-
-
+	
+	
 	parseCsvToObjectList:<T  extends  Record<string, string | number | boolean | Date> = GenericObject>(csvFilepath:string, separator?:string) =>  T[];
 	parseObjectListToCsv:<T  extends  GenericObject = GenericObject>(data:T[], separator?:string) =>  string
 	writeCsv:<T  extends  GenericObject = GenericObject>(outputCsv:string, data:T[], separator?:string) =>  Promise<void>
 	createWorkbook: <T  extends  GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]) =>  Promise<Workbook>;
 	writeWorkbook:<T  extends  GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]) =>  Promise<void>;
-
+	
 	translateValue:(value:string, localeIn:string, localeOut:string) =>  Promise<string>;
 	translateObjectList:<T  extends  GenericObject = GenericObject>(data:T[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig) =>  Promise<T[]>
 	translateCsv:(data:TranslateCsvConfig) =>  Promise<void>;
-
+	
 	findWords: (folderToRead:string, desiredExtensions:string[], excludeDir:string[], wordToFind:RegExp) =>  string[],
 	writeJson:<T  extends  GenericObject = GenericObject>(outputCsv:string, data:T[]) =>  void
-
 }
 ```
 
