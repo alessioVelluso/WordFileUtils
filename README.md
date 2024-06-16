@@ -1,6 +1,6 @@
 # Word File Utils
 
-`v0.0.1`
+`v0.0.2`
 
 This is a package i made for myself but can surely be helpful to others, feel free to contribute if you like it
 
