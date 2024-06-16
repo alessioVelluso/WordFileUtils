@@ -7,9 +7,7 @@ This is a package i made for myself but can surely be helpful to others, feel fr
 ## Install:
 
 ```
-
 npm install word-file-utils
-
 ```
 
 
@@ -29,8 +27,8 @@ interface  IWordFileUtils {
 	parseCsvToObjectList:<T  extends  Record<string, string | number | boolean | Date> = GenericObject>(csvFilepath:string, separator?:string) =>  T[];
 	parseObjectListToCsv:<T  extends  GenericObject = GenericObject>(data:T[], separator?:string) =>  string
 	writeCsv:<T  extends  GenericObject = GenericObject>(outputCsv:string, data:T[], separator?:string) =>  Promise<void>
-	createWorkbook: <T  extends  GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]) =>  Promise<Workbook>;
-	writeWorkbook:<T  extends  GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]) =>  Promise<void>;
+	createWorkbook: <T  extends  GenericObject = GenericObject>(worksheets:WfuWorksheet<T>[]) =>  Promise<Workbook>;
+	writeWorkbook:<T  extends  GenericObject = GenericObject>(output:string, worksheets:WfuWorksheet<T>[]) =>  Promise<void>;
 
 	translateValue:(value:string, localeIn:string, localeOut:string) =>  Promise<string>;
 	translateObjectList:<T  extends  GenericObject = GenericObject>(data:T[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig) =>  Promise<T[]>
@@ -38,7 +36,6 @@ interface  IWordFileUtils {
 
 	findWords: (folderToRead:string, desiredExtensions:string[], excludeDir:string[], wordToFind:RegExp) =>  string[],
 	writeJson:<T  extends  GenericObject = GenericObject>(outputCsv:string, data:T[]) =>  void
-
 }
 ```
 
@@ -93,7 +90,7 @@ Returns a string ready to be written down with the specific `writeCsv<T = Generi
 
 ##### 3. Create Workbook
 ```js
-createWorkbook: <T  extends  GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]) =>  Promise<Workbook>;
+createWorkbook: <T  extends  GenericObject = GenericObject>(worksheets:WfuWorksheet<T>[]) =>  Promise<Workbook>;
 ```
 Returns an ExcelJs.Workbook ready to be written down with the specific `writeWorkbook(name:string, worksheets:WfuWorksheet[])` function or managed to be passed with an api
 
@@ -125,7 +122,7 @@ It uses the related `parseObjectListToCsv` method
 
 ##### 5. Write Workbook
 ```js
-writeWorkbook:<T  extends  GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]) =>  Promise<void>;
+writeWorkbook:<T  extends  GenericObject = GenericObject>(output:string, worksheets:WfuWorksheet<T>[]) =>  Promise<void>;
 ```
 
 Write a workbook locally using the related method `createWorkbook`

@@ -5,7 +5,7 @@ const wfu = new Wfu({ separator: "|" });
 
 // --- Excel
 const data = wfu.parseCsvToObjectList<{ Key:string, Value:string }>("../Files/Test_ITA.csv")
-wfu.createWorkbook<{ Key:string, Value:string }>("../Files/TestWorkbook", [
+wfu.writeWorkbook<{ Key:string, Value:string }>("../Files/TestWorkbook", [
     {
         name: "Worksheet1", data,
         prepend: {

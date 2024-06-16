@@ -16,8 +16,8 @@ interface IWordFileUtils {
     parseCsvToObjectList:<T extends Record<string, string | number | boolean | Date> = GenericObject>(csvFilepath:string, separator?:string) => T[];
 	parseObjectListToCsv:<T extends GenericObject = GenericObject>(data:T[], separator?:string) => string
 	writeCsv:<T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator?:string) => Promise<void>
-	createWorkbook: <T extends GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]) => Promise<Workbook>;
-	writeWorkbook:<T extends GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]) => Promise<void>;
+	createWorkbook: <T extends GenericObject = GenericObject>(worksheets:WfuWorksheet<T>[]) => Promise<Workbook>;
+	writeWorkbook:<T extends GenericObject = GenericObject>(output:string, worksheets:WfuWorksheet<T>[]) => Promise<void>;
 
 	translateValue:(value:string, localeIn:string, localeOut:string) => Promise<string>;
     translateObjectList:<T extends GenericObject = GenericObject>(data:T[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig) => Promise<T[]>
@@ -110,7 +110,7 @@ export default class WordFileUtils implements IWordFileUtils {
 		return startY + y;
 	}
 
-	public async createWorkbook<T extends GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]):Promise<Workbook> {
+	public async createWorkbook<T extends GenericObject = GenericObject>(worksheets:WfuWorksheet<T>[]):Promise<Workbook> {
 		const workbook = new ExcelJS.Workbook();
 
 		for (const ws of worksheets)
@@ -269,10 +269,10 @@ export default class WordFileUtils implements IWordFileUtils {
 	}
 
 
-	public async writeWorkbook<T extends GenericObject = GenericObject>(name:string, worksheets:WfuWorksheet<T>[]):Promise<void> {
-		const wb = await this.createWorkbook(name, worksheets);
+	public async writeWorkbook<T extends GenericObject = GenericObject>(output:string, worksheets:WfuWorksheet<T>[]):Promise<void> {
+		const wb = await this.createWorkbook(worksheets);
 
-		await wb.xlsx.writeFile(name + '.xls')
-		console.log(`File saved in ${name}.xls`);
+		await wb.xlsx.writeFile(output + '.xls')
+		console.log(`File saved in ${output}.xls`);
 	}
 }
