@@ -27,11 +27,10 @@
   "devDependencies": {
     "@types/node": "^20.14.2",
     "ts-node": "^10.9.2",
+    "tsup": "^8.1.0",
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "exceljs": "^4.4.0",
-    "node-google-translate-skidz": "^1.1.2",
-    "tsup": "^8.1.0"
+    "exceljs": "^4.4.0"
   }
 }

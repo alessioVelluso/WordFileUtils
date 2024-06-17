@@ -1,8 +1,9 @@
 import { Column } from "exceljs"
+import { GoogleTranslateLocales } from "./translate.types"
 
 export interface GenericObject { [Key:string]: string | number | boolean | Date }
 
-export interface TranslationConfig { translatingCol:string, cultureFrom:string, cultureTo:string }
+export interface TranslationConfig { translatingCol:string, cultureFrom:GoogleTranslateLocales, cultureTo:GoogleTranslateLocales }
 
 export interface TranslateCsvConfig extends TranslationConfig { csvFilepath:string, outFilepath:string, separator?:string }
 

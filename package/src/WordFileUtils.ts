@@ -1,8 +1,9 @@
 import fs from "fs"
 import path from 'path'
-import translate from 'node-google-translate-skidz';
 import { GenericObject, TranslateCsvConfig, TranslationConfig, TranslationMakerConstructor, WfuWorksheet, WfuWorksheetDetails } from "./types/types.js";
 import ExcelJS, { Border, Borders, FillPattern, Workbook, Worksheet } from 'exceljs';
+import GoogleTranslateApi from "./GoogleTranslate";
+import { GoogleTranslateLocales } from "./types/translate.types.js";
 
 
 
@@ -19,7 +20,7 @@ interface IWordFileUtils {
 	createWorkbook: <T extends GenericObject = GenericObject>(worksheets:WfuWorksheet<T>[]) => Promise<Workbook>;
 	writeWorkbook:<T extends GenericObject = GenericObject>(output:string, worksheets:WfuWorksheet<T>[]) => Promise<void>;
 
-	translateValue:(value:string, localeIn:string, localeOut:string) => Promise<string>;
+	translateValue:(value:string, localeIn:GoogleTranslateLocales, localeOut:GoogleTranslateLocales) => Promise<string>;
     translateObjectList:<T extends GenericObject = GenericObject>(data:T[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig) => Promise<T[]>
     translateCsv:(data:TranslateCsvConfig) => Promise<void>;
 
@@ -31,7 +32,7 @@ interface IWordFileUtils {
 
 
 
-export default class WordFileUtils implements IWordFileUtils {
+export default class WordFileUtils extends GoogleTranslateApi implements IWordFileUtils {
 
 	// --- Data
   	public errorTranslationValue = "xxx-ERROR-xxx";
@@ -39,6 +40,7 @@ export default class WordFileUtils implements IWordFileUtils {
   	public separator = ";"
 
 	constructor(data:TranslationMakerConstructor = {}) {
+		super();
 		if (data?.separator) this.separator = data.separator;
 		if (data.errorTranslationValue) this.errorTranslationValue = data.errorTranslationValue
 		if (data.translationColumnName) this.translationColumnName = data.translationColumnName
@@ -180,8 +182,8 @@ export default class WordFileUtils implements IWordFileUtils {
 
 	// --- Translations
 
-  	public async translateValue(value:string, localeIn:string, localeOut:string):Promise<string> {
-    	const translation:string = await translate({ text: value, source: localeIn, target: localeOut });
+  	public async translateValue(value:string, localeIn:GoogleTranslateLocales, localeOut:GoogleTranslateLocales):Promise<string> {
+    	const translation:string = await this.translate({ text: value, from: localeIn, to: localeOut });
     	return translation;
   	}
 
