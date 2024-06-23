@@ -12,9 +12,9 @@
     "outDir": "dist",
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "typeRoots": ["./node_modules/@types", "types"],
     "skipLibCheck": true,
   },
-  "include": ["src"],
+  "include": ["src", "types", "scripts"],
   "exclude": ["node_modules"]
 }

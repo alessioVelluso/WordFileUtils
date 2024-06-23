@@ -1,36 +1,37 @@
 {
   "name": "word-file-utils",
-  "version": "0.0.2",
+  "version": "1.0.0",
+  "author": "Alessio Velluso",
+  "license": "MIT",
   "description": "Word finder and translation/csv utils",
   "repository": {
     "url": "https://github.com/alessioVelluso/WordFileUtils"
   },
-  "main": "dist/WordFileUtils.js",
-  "module": "dist/WordFileUtils.mjs",
-  "types": "dist/WordFileUtils.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/WordFileUtils.mjs",
-      "require": "./dist/WordFileUtils.js"
-    }
-  },
-  "scripts": {
-    "build": "tsup"
-  },
-  "keywords": [
-    "File",
-    "csv",
-    "translation"
-  ],
-  "author": "Alessio Velluso",
-  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.14.2",
     "ts-node": "^10.9.2",
     "tsup": "^8.1.0",
     "typescript": "^5.4.5"
   },
-  "dependencies": {
+  "peerDependencies": {
     "exceljs": "^4.4.0"
-  }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "install": "node scripts/install.js"
+  },
+  "keywords": [
+    "File",
+    "csv",
+    "translation"
+  ]
 }

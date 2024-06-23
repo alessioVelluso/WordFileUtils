@@ -1,8 +1,18 @@
 import { Column } from "exceljs"
 import { GoogleTranslateLocales } from "./translate.types"
 
-export interface GenericObject { [Key:string]: string | number | boolean | Date }
 
+
+// --- Generic Utils
+export interface GenericObject { [Key:string]: string | number | boolean | Date | GenericObject }
+
+export type GenericType = string | number | boolean | Date | GenericObject
+
+export interface CatchedResponse<T> { isOk:boolean, response: T | null, error?:string | null }
+
+
+
+// --- Word File Utils
 export interface TranslationConfig { translatingCol:string, cultureFrom:GoogleTranslateLocales, cultureTo:GoogleTranslateLocales }
 
 export interface TranslateCsvConfig extends TranslationConfig { csvFilepath:string, outFilepath:string, separator?:string }

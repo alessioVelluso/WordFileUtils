@@ -3,7 +3,7 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig({
   format: ['cjs', 'esm'],
-  entry: ['./src/WordFileUtils.ts'],
+  entry: ['./src/index.ts'],
   dts: true,
   shims: true,
   skipNodeModulesBundle: true,
@@ -13,7 +13,7 @@ export default defineConfig({
   splitting: true,
   sourcemap: false,
   minify: false,
-  esbuildOptions: (options) => {
-    options.footer = { js: 'module.exports = module.exports.default;' }
-  }
+  // esbuildOptions: (options) => {
+  //   options.footer = { js: 'module.exports = module.exports.default;' }
+  // }
 });

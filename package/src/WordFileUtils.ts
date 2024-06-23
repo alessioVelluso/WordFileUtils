@@ -1,9 +1,9 @@
 import fs from "fs"
 import path from 'path'
-import { GenericObject, TranslateCsvConfig, TranslationConfig, TranslationMakerConstructor, WfuWorksheet, WfuWorksheetDetails } from "./types/types.js";
+import { GenericObject, TranslateCsvConfig, TranslationConfig, TranslationMakerConstructor, WfuWorksheet, WfuWorksheetDetails } from "../types/generic.types.js";
 import ExcelJS, { Border, Borders, FillPattern, Workbook, Worksheet } from 'exceljs';
 import GoogleTranslateApi from "./GoogleTranslate";
-import { GoogleTranslateLocales } from "./types/translate.types.js";
+import { GoogleTranslateLocales } from "../types/translate.types.js";
 
 
 
@@ -14,7 +14,7 @@ interface IWordFileUtils {
     errorTranslationValue:string;
     translationColumnName:string;
 
-    parseCsvToObjectList:<T extends Record<string, string | number | boolean | Date> = GenericObject>(csvFilepath:string, separator?:string) => T[];
+    parseCsvToObjectList:<T extends GenericObject = GenericObject>(csvFilepath:string, separator?:string) => T[];
 	parseObjectListToCsv:<T extends GenericObject = GenericObject>(data:T[], separator?:string) => string
 	writeCsv:<T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator?:string) => Promise<void>
 	createWorkbook: <T extends GenericObject = GenericObject>(worksheets:WfuWorksheet<T>[]) => Promise<Workbook>;
@@ -32,7 +32,8 @@ interface IWordFileUtils {
 
 
 
-export default class WordFileUtils extends GoogleTranslateApi implements IWordFileUtils {
+export default class WordFileUtils extends GoogleTranslateApi implements IWordFileUtils
+{
 
 	// --- Data
   	public errorTranslationValue = "xxx-ERROR-xxx";
@@ -60,13 +61,17 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 		const cols = rows.splice(0,1)[0].split(separator);
 
 		const result = rows.map(line => {
-			const rowArray = line.split(separator);
 			const result = {} as T
-			if (rowArray.length > 0) rowArray.forEach((x, i) => (result as GenericObject)[cols[i]] = x)
+
+			if (line.replaceAll(separator, "").trim() !== "")
+			{
+				console.log("Line =>", line)
+				const rowArray = line.split(separator);
+				if (rowArray.length > 0) rowArray.forEach((x, i) => (result as GenericObject)[cols[i]] = x)
+			}
 
 			return result
 		});
-
 
 		return result;
 	}
