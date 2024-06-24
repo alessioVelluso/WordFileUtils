@@ -21,7 +21,7 @@ wfu.translateCsv({
 });
 
 
-const data = wfu.parseCsvToObjectList("../Files/MockData.csv");
+const data = wfu.parseCsvToObjectList("../Files/MockData.csv", ",");
 wfu.writeWorkbook("../Files/Test", [
     { name: "Worksheet_1", data }
 ])

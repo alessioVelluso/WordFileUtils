@@ -13,7 +13,7 @@
     "tsup": "^8.1.0",
     "typescript": "^5.4.5"
   },
-  "peerDependencies": {
+  "dependencies": {
     "exceljs": "^4.4.0"
   },
   "main": "dist/index.js",
@@ -26,8 +26,7 @@
     }
   },
   "scripts": {
-    "build": "tsup",
-    "install": "node scripts/install.js"
+    "build": "tsup"
   },
   "keywords": [
     "File",

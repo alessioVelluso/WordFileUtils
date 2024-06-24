@@ -1,6 +1,6 @@
-import Wfu from "word-file-utils"
+import { WordFileUtils } from "word-file-utils"
 
-const wfu = new Wfu({ separator: "|" });
+const wfu = new WordFileUtils({ separator: "|" });
 
 
 // --- Excel

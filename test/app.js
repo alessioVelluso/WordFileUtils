@@ -1,11 +1,16 @@
-const WordFileUtils = require("word-file-utils")
+const { WordFileUtils, GenericUtils } = require("word-file-utils")
 const fs = require("fs")
+
+const gu = new GenericUtils();
+const randomDate = new Date().toISOString();
+const parsedDate = gu.parseDate(randomDate);
+console.log(parsedDate);
 
 
 
 // --- Translation
 const wfu = new WordFileUtils({ separator: "|" });
-wfUtils.translateCsv({
+wfu.translateCsv({
     csvFilepath: "../Files/Test_ITA.csv",
     cultureFrom: "it",
     cultureTo: "en",

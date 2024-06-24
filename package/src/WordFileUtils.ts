@@ -16,7 +16,7 @@ interface IWordFileUtils {
 
     parseCsvToObjectList:<T extends GenericObject = GenericObject>(csvFilepath:string, separator?:string) => T[];
 	parseObjectListToCsv:<T extends GenericObject = GenericObject>(data:T[], separator?:string) => string
-	writeCsv:<T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator?:string) => Promise<void>
+	writeCsv:<T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator?:string) => void
 	createWorkbook: <T extends GenericObject = GenericObject>(worksheets:WfuWorksheet<T>[]) => Promise<Workbook>;
 	writeWorkbook:<T extends GenericObject = GenericObject>(output:string, worksheets:WfuWorksheet<T>[]) => Promise<void>;
 
@@ -38,7 +38,7 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 	// --- Data
   	public errorTranslationValue = "xxx-ERROR-xxx";
   	public translationColumnName = "translated_value"
-  	public separator = ";"
+  	public separator = ","
 
 	constructor(data:TranslationMakerConstructor = {}) {
 		super();
@@ -65,7 +65,6 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 
 			if (line.replaceAll(separator, "").trim() !== "")
 			{
-				console.log("Line =>", line)
 				const rowArray = line.split(separator);
 				if (rowArray.length > 0) rowArray.forEach((x, i) => (result as GenericObject)[cols[i]] = x)
 			}
@@ -233,7 +232,6 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 
         const length = filteredFiles.length
         for (let i = 0; i < length; i++) {
-            console.log(`[${i+1}/${length}] => File ${filteredFiles[i]} read`);
 
             const text = fs.readFileSync(path.join(folderToRead, filteredFiles[i])).toString();
             const fileWords = [...text.matchAll(wordToFind)].map(x => x[1])
@@ -259,7 +257,7 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 	}
 
 
-	public async writeCsv<T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator:string = this.separator):Promise<void> {
+	public writeCsv<T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator:string = this.separator):void {
 		const parsedCsv = this.parseObjectListToCsv(data, separator)
 		fs.writeFile(outputCsv, parsedCsv, (err) => {
 			if (err) console.error('Error:', err);
