@@ -1,5 +1,11 @@
 import { GoogleTranslateLocales } from "../types/translate.types"
 
+/*
+ *
+ * An incredible thanks to https://github.com/statickidz/node-google-translate-skidz
+ * for this api.
+ *
+*/
 export default class GoogleTranslateApi
 {
 
