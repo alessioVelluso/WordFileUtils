@@ -1,6 +1,6 @@
 # Word File Utils
 
-`v0.0.1`
+`v0.0.2`
 
 This is a package i made for myself but can surely be helpful to others, feel free to contribute if you like it
 
@@ -16,7 +16,15 @@ The package is just a class exporting as default, feel free to use all the OOP i
 
 At the moment, the interface of the class is as it follows:
 
-```js
+```ts
+
+export interface IGenericUtils {
+    parseDate: (date?:string) => string
+    catchRes: <T>(isOk:false, response:T | null, error?:string | null) => CatchedResponse<T>
+    isAxiosOk: (res:{ status:number, [Key:string]: GenericType} /* pass an AxiosResponse */) => boolean;
+    isStringValid: (str?:string) => boolean
+}
+
 
 interface  IWordFileUtils {
 	separator:string;
@@ -42,17 +50,21 @@ interface  IWordFileUtils {
 
 ## Initialize the class
 
-The constructor of the class follows this interface:
 ```ts
-export  interface  TranslationMakerConstructor { separator?:string, errorTranslationValue?:string, translationColumnName?:string }
+import { WordFileUtils, GenericUtils } from "word-file-utils"
+```
+I suggest you to create a generic utils class extending mine (GenericUtils) if you want a solid way to store all your utils functions or whatever.
+You can find an example in the `test3/utils.ts` file in this repo.
 
-public  errorTranslationValue = "xxx-ERROR-xxx";
-public  translationColumnName = "translated_value"
-public  separator = ";"
+For the WordFileUtils class i reccomand you to initialize a new object everytime you require it.
+The constructor of WordFileUtils follows this interface:
+```ts
+constructor(data:TranslationMakerConstructor = {})
+interface TranslationMakerConstructor {  separator?:string, errorTranslationValue?:string, translationColumnName?:string }
 ```
 
 The **separator** can be defined here or in any method that requires it as an optional parameter.
-Th **errorTranslationValue** and **translationColumnName ** are specific to the translations method.
+The **errorTranslationValue** and **translationColumnName** are specific to the translations method.
 
 Feel free to omit all of the three params if you don't require them.
 
@@ -92,13 +104,14 @@ Returns a string ready to be written down with the specific `writeCsv<T = Generi
 ```js
 createWorkbook: <T  extends  GenericObject = GenericObject>(worksheets:WfuWorksheet<T>[]) =>  Promise<Workbook>;
 ```
-Returns an ExcelJs.Workbook ready to be written down with the specific `writeWorkbook(name:string, worksheets:WfuWorksheet[])` function or managed to be passed with an api
+Returns an ExcelJs.Workbook ready to be passed with an api
+
 
 ```ts
 const  wfu = new  Wfu({ separator:  "|" });
 
 const data = [{col1:"Test1",col2:"Test2"},{col1:"Test3",col2:"Test4"}]
-wfu.createWorkbook<{ Key:string, Value:string }>("../Files/TestWorkbook", [
+wfu.createWorkbook<{ Key:string, Value:string }>([
 	{
 		name:  "Worksheet1", data,
 		prepend: {
@@ -126,6 +139,10 @@ writeWorkbook:<T  extends  GenericObject = GenericObject>(output:string, workshe
 ```
 
 Write a workbook locally using the related method `createWorkbook`
+**WRITE THE OUTPOUT WITHOUT THE FINAL EXTENSION LIKE:**
+```ts
+writeWorkbook("../Files/test", [...])
+```
 
 
 ##### 6. Translate Value
@@ -173,21 +190,35 @@ Easily write a local json
 ## Types
 
 ```ts
-export  interface  GenericObject { [Key:string]: string | number | boolean | Date }
+import { Column } from "exceljs"
+import { GoogleTranslateLocales } from "./translate.types"
 
-export  interface  TranslationConfig { translatingCol:string, cultureFrom:string, cultureTo:string }
 
-export  interface  TranslateCsvConfig  extends  TranslationConfig { csvFilepath:string, outFilepath:string, separator?:string }
 
-export  interface  TranslationMakerConstructor { separator?:string, errorTranslationValue?:string, translationColumnName?:string }
+// --- Generic Utils
+export interface GenericObject { [Key:string]: string | number | boolean | Date | GenericObject }
 
-export  interface  WfuExcelColumn  extends  Partial<Column> { name:string, parse?: 'date' };
+export type GenericType = string | number | boolean | Date | GenericObject
 
-export  type  WfuWorksheetDetails = { title:string, rows?:number, data: GenericObject, patternColor?: string }
-export  interface  WfuWorksheet<T  extends  GenericObject = GenericObject> {
-	name: string,
-	data:T[],
-	prepend?: WfuWorksheetDetails
-	append?: WfuWorksheetDetails,
+export interface CatchedResponse<T> { isOk:boolean, response: T | null, error?:string | null }
+
+
+
+// --- Word File Utils
+export interface TranslationConfig { translatingCol:string, cultureFrom:GoogleTranslateLocales, cultureTo:GoogleTranslateLocales }
+
+export interface TranslateCsvConfig extends TranslationConfig { csvFilepath:string, outFilepath:string, separator?:string }
+
+export interface TranslationMakerConstructor {  separator?:string, errorTranslationValue?:string, translationColumnName?:string }
+
+export interface WfuExcelColumn extends Partial<Column> { name:string, parse?: 'date' };
+
+export type WfuWorksheetDetails = { title:string, rows?:number, data: GenericObject, patternColor?: string }
+export interface WfuWorksheet<T extends GenericObject = GenericObject> {
+    name: string,
+    data:T[],
+    prepend?: WfuWorksheetDetails
+    append?: WfuWorksheetDetails,
 }
+
 ```
