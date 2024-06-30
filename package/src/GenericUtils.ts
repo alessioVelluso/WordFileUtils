@@ -1,4 +1,5 @@
-import { CatchedResponse, GenericType } from "../types/generic.types";
+import { CatchedResponse, GenericType, LoggerConstructor } from "../types/generic.types";
+import Logger from "./Logger";
 
 
 export interface IGenericUtils {
@@ -10,8 +11,11 @@ export interface IGenericUtils {
 
 
 
-export default class GenericUtils implements IGenericUtils
+export default class GenericUtils extends Logger implements IGenericUtils
 {
+    constructor(data?:LoggerConstructor) {
+        super(data);
+    }
     parseDate = (date?:string):string => {
         const dateObj = !date ? new Date() : new Date(date);
         return `${dateObj.toLocaleDateString()} ${dateObj.toLocaleTimeString()}`;
@@ -34,5 +38,10 @@ export default class GenericUtils implements IGenericUtils
 
         if (str.trim() === "") return false;
         else return true;
+    }
+
+    catchResError = (err:any):CatchedResponse<any> => {
+        err = this.logError(err)
+        return { isOk: false, response:null, error:err }
     }
 }
