@@ -1,6 +1,5 @@
 import { WordFileUtils, CatchedResponse, ClientFilter, ClientFilters } from "word-file-utils"
 import gu from "./utils";
-import {  } from "../package/types/generic.types";
 
 // --- V1.0.1 --- //
 
@@ -24,10 +23,6 @@ wfu.translateCsv({
 
 
 const data = wfu.parseCsvToObjectList("../Files/MockData.csv", ",");
-wfu.writeWorkbook("../Files/Test", [
-    { name: "Worksheet_1", data }
-])
-
 
 
 
