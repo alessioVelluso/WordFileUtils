@@ -1,6 +1,6 @@
 {
   "name": "word-file-utils",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "author": "Alessio Velluso",
   "license": "MIT",
   "description": "Word finder and translation/csv utils",
@@ -14,7 +14,8 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "exceljs": "^4.4.0"
+    "exceljs": "^4.4.0",
+    "utils-stuff": "1.1.2"
   },
   "main": "dist/index.js",
   "module": "dist/index.mjs",

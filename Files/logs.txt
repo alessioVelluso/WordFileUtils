@@ -11,3 +11,9 @@
 [6/30/2024 12:57:46 AM]   ERROR  An Error
 [6/30/2024 1:03:22 AM]   LOG    Hello there
 [6/30/2024 1:03:22 AM]   ERROR  An Error
+[6/30/2024 2:11:52 AM]   LOG    Hello there
+[6/30/2024 2:11:52 AM]   ERROR  An Error
+[6/30/2024 2:12:45 AM]		  LOG:  Hello there
+[6/30/2024 2:12:45 AM]		ERROR:  An Error
+[01/07/2024 19:34:55]		  LOG:  Hello there
+[01/07/2024 19:34:55]		ERROR:  An Error

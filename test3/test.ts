@@ -1,6 +1,6 @@
-import { WordFileUtils } from "word-file-utils"
+import { WordFileUtils, CatchedResponse, ClientFilter, ClientFilters } from "word-file-utils"
 import gu from "./utils";
-import { CatchedResponse } from "../package/types/generic.types";
+import {  } from "../package/types/generic.types";
 
 // --- V1.0.1 --- //
 
@@ -34,20 +34,31 @@ wfu.writeWorkbook("../Files/Test", [
 // --- V1.0.2 --- //
 
 gu.log("Hello there, this is a log", "blue");
-
 gu.logFile("Hello there", "log", false);
 gu.logFile("An Error", "error");
 
-const res = (function test():CatchedResponse<boolean> {
-    try
-    {
+function testCatch():CatchedResponse<boolean> {
+    try {
         throw new EvalError("Test")
-        return { isOk:true, response:true }
     }
-    catch(err)
-    {
+    catch(err) {
         return gu.catchResError(err);
     }
-})()
+}
 
-gu.log(res, "cyan");
+gu.log(testCatch(), "cyan"); // Whatever is not string, is not colored
+
+interface ExampleFilter extends ClientFilter { startDate:Date, endDate:Date, type:number, active?:boolean }
+const filter = new ClientFilters<ExampleFilter>({
+    startDate: new Date(),
+    endDate: new Date(),
+    type: 2,
+});
+
+filter.values.active = true;
+gu.log(filter.currentParams, "cyan");
+
+
+filter.values.active = undefined;
+filter.values.startDate = new Date("5/30/2024 15:00")
+gu.log(filter.currentParams, "cyan");

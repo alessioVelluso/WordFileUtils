@@ -1,6 +1,7 @@
 import fs from "fs"
 import path from 'path'
-import { GenericObject, TranslateCsvConfig, TranslationConfig, TranslationMakerConstructor, WfuWorksheet, WfuWorksheetDetails } from "../types/generic.types.js";
+import { TranslateCsvConfig, TranslationConfig, TranslationMakerConstructor, WfuWorksheet, WfuWorksheetDetails } from "../types/generic.types.js";
+import { GenericObject } from "utils-stuff";
 import ExcelJS, { Border, Borders, FillPattern, Workbook, Worksheet } from 'exceljs';
 import GoogleTranslateApi from "./GoogleTranslate";
 import { GoogleTranslateLocales } from "../types/translate.types.js";
