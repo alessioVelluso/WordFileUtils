@@ -1,14 +1,14 @@
 ﻿# Word File Utils
 
-`v2.0.0`
+`v2.0.1`
 This is a package i made for myself but can surely be helpful to others, feel free to contribute if you like it.
 
 > [!WARNING]
-> If you need excel js install [fast-excel](https://github.com/alessioVelluso/FastExcel) or take a look at [utils-stuff](https://github.com/alessioVelluso/UtilsStuff) wich is the lighter package.
+> If you need excel js install [fast-js-excel](https://github.com/alessioVelluso/FastExcel) or take a look at [utils-stuff](https://github.com/alessioVelluso/UtilsStuff) wich is the lighter package.
 > **DO NOT INSTALL ALL THREE LIBS CAUSE ONE IS THE "PARENT" OF THE OTHER:**
 > 1. `utils-stuff`
 > 2. `word-file-utils` (including utils-stuff)
-> 3. `fast-excel` (including exceljs, word-file-utils (including utils-stuff))
+> 3. `fast-js-excel` (including exceljs, word-file-utils (including utils-stuff))
 >
 >So if you install word-file utils you can use the classes of utils-stuff and so on, choose the one for your pourpose.
 
