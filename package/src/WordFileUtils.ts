@@ -52,7 +52,7 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 
 	// --- CSV - Excel
 
-	public parseCsvToObjectList<T extends GenericObject = GenericObject>(csvFilepath:string, separator:string = this.separator):T[] {
+	public parseCsvToObjectList = <T extends GenericObject = GenericObject>(csvFilepath:string, separator:string = this.separator):T[] => {
 		const csvContent = fs.readFileSync(csvFilepath, 'utf-8');
 
 		const rows = csvContent.split('\n');
@@ -74,7 +74,7 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 	}
 
 
-	public parseObjectListToCsv<T extends GenericObject = GenericObject>(data:T[], separator:string = this.separator):string {
+	public parseObjectListToCsv = <T extends GenericObject = GenericObject>(data:T[], separator:string = this.separator):string => {
 		const cols = Object.keys(data[0])
 		const stringedArray = data.map(row => {
 			const stringed = cols.map(x => row[x]).join(separator)
@@ -91,13 +91,13 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 
 	// --- Translations
 
-  	public async translateValue(value:string, localeIn:GoogleTranslateLocales, localeOut:GoogleTranslateLocales):Promise<string> {
+  	public translateValue = async (value:string, localeIn:GoogleTranslateLocales, localeOut:GoogleTranslateLocales):Promise<string> => {
     	const translation:string = await this.translate({ text: value, from: localeIn, to: localeOut });
     	return translation;
   	}
 
 
-  	public async translateObjectList<T extends GenericObject = GenericObject>(data:T[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig):Promise<T[]> {
+  	public translateObjectList = async <T extends GenericObject = GenericObject>(data:T[], { translatingCol, cultureFrom, cultureTo }:TranslationConfig):Promise<T[]> => {
     	let j = 0;
     	const length = data.length;
 		for (let row of data) {
@@ -149,7 +149,7 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
     }
 
 
-	public writeJson<T extends GenericObject = GenericObject>(outputCsv:string, data:T[]):void {
+	public writeJson = <T extends GenericObject = GenericObject>(outputCsv:string, data:T[]):void => {
 		try
 		{
 			const json = JSON.stringify(data, null, 2);
@@ -162,7 +162,7 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 	}
 
 
-	public writeCsv<T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator:string = this.separator):void {
+	public writeCsv = <T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator:string = this.separator):void => {
 		const parsedCsv = this.parseObjectListToCsv(data, separator)
 		fs.writeFile(outputCsv, parsedCsv, (err) => {
 			if (err) console.error('Error:', err);
@@ -171,7 +171,7 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 	}
 
 
-	public async translateCsv({csvFilepath, outFilepath, translatingCol, cultureFrom, cultureTo, separator = this.separator }:TranslateCsvConfig) {
+	public translateCsv = async ({csvFilepath, outFilepath, translatingCol, cultureFrom, cultureTo, separator = this.separator }:TranslateCsvConfig) => {
 		const objectListCsv = this.parseCsvToObjectList(csvFilepath, separator);
 		const translatedObjectList = await this.translateObjectList(objectListCsv, { translatingCol, cultureFrom, cultureTo });
 

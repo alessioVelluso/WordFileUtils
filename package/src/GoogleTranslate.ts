@@ -16,7 +16,7 @@ export default class GoogleTranslateApi
         'User-Agent': 'AndroidTranslate/5.3.0.RC02.130475354-53000263 5.1 phone TRANSLATE_OPM5_TEST_1',
     }
 
-    protected async translate(data:{from:GoogleTranslateLocales, to:GoogleTranslateLocales, text:string}):Promise<string> {
+    protected translate = async (data:{from:GoogleTranslateLocales, to:GoogleTranslateLocales, text:string}):Promise<string> => {
         try
         {
             const finalUrl:string = `${this.firstUrl}${data.to}${this.secondUrl}`
