@@ -164,7 +164,7 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 
 	public writeCsv = <T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator:string = this.separator):void => {
 		const parsedCsv = this.parseObjectListToCsv(data, separator)
-		fs.writeFile(outputCsv, parsedCsv, (err:string) => {
+		fs.writeFile(outputCsv, parsedCsv, err => {
 			if (err) console.error('Error:', err);
 			else console.log('File saved in ' + outputCsv);
 		});
