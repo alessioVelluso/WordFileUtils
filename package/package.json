@@ -1,6 +1,6 @@
 {
   "name": "word-file-utils",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "author": "Alessio Velluso",
   "license": "MIT",
   "description": "Word finder and translation/csv utils",
