@@ -55,8 +55,8 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 	public parseCsvToObjectList = <T extends GenericObject = GenericObject>(csvFilepath:string, separator:string = this.separator):T[] => {
 		const csvContent = fs.readFileSync(csvFilepath, 'utf-8');
 
-		const rows = csvContent.split('\n');
-		const cols = rows.splice(0,1)[0].split(separator);
+		const rows:string[] = csvContent.split('\n');
+		const cols = rows.splice(0,1)[0].split(separator).map(x => x.trim().replace(/[\r\n\t\v\f\0]/g, ''));
 
 		const result = rows.map(line => {
 			const result = {} as T
@@ -64,7 +64,7 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 			if (line.replaceAll(separator, "").trim() !== "")
 			{
 				const rowArray = line.split(separator);
-				if (rowArray.length > 0) rowArray.forEach((x, i) => (result as GenericObject)[cols[i]] = x)
+				if (rowArray.length > 0) rowArray.forEach((x, i) => (result as GenericObject)[cols[i]] = x.trim().replace(/[\r\n\t\v\f\0]/g, ''))
 			}
 
 			return result
@@ -132,7 +132,7 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 	public findWords = (folderToRead:string, desiredExtensions:string[], excludeDir:string[], wordToFind:RegExp) => {
         const allWords:string[] = [];
 
-        const files = fs.readdirSync(folderToRead, { encoding: 'utf-8', recursive: true });
+        const files:string[] = fs.readdirSync(folderToRead, { encoding: 'utf-8', recursive: true });
         const filteredFiles = files.filter(file => desiredExtensions.some(x => file.includes(x)) && !excludeDir.some(x => file.includes(x)))
 
         const length = filteredFiles.length
@@ -164,7 +164,7 @@ export default class WordFileUtils extends GoogleTranslateApi implements IWordFi
 
 	public writeCsv = <T extends GenericObject = GenericObject>(outputCsv:string, data:T[], separator:string = this.separator):void => {
 		const parsedCsv = this.parseObjectListToCsv(data, separator)
-		fs.writeFile(outputCsv, parsedCsv, (err) => {
+		fs.writeFile(outputCsv, parsedCsv, (err:string) => {
 			if (err) console.error('Error:', err);
 			else console.log('File saved in ' + outputCsv);
 		});
